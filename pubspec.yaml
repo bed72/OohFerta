@@ -31,3 +31,15 @@ flutter:
 
   assets:
     - assets/images/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: lib/src/shared/assets/fonts/Poppins-Medium.ttf
+        - asset: lib/src/shared/assets/fonts/Poppins-Regular.ttf
+        - asset: lib/src/shared/assets/fonts/Poppins-Bold.ttf
+          weight: 900
+        - asset: lib/src/shared/assets/fonts/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: lib/src/shared/assets/fonts/Poppins-Italic.ttf
+          style: italic

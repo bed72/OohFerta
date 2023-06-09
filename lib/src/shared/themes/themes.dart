@@ -1,73 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-import 'colors/colors.dart';
+import 'package:oohferta/src/shared/themes/colors/grey_colors_theme.dart';
+import 'package:oohferta/src/shared/themes/colors/info_colors_theme.dart';
+import 'package:oohferta/src/shared/themes/colors/danger_colors_theme.dart';
+import 'package:oohferta/src/shared/themes/colors/primary_colors_theme.dart';
+import 'package:oohferta/src/shared/themes/colors/success_colors_theme.dart';
+import 'package:oohferta/src/shared/themes/colors/warning_colors_theme.dart';
+
+import 'package:oohferta/src/shared/themes/fonts/body_1_fonts_theme.dart';
+import 'package:oohferta/src/shared/themes/fonts/body_2_fonts_theme.dart';
+import 'package:oohferta/src/shared/themes/fonts/body_3_fonts_theme.dart';
+import 'package:oohferta/src/shared/themes/fonts/heading_1_fonts_theme.dart';
+import 'package:oohferta/src/shared/themes/fonts/heading_2_fonts_theme.dart';
+import 'package:oohferta/src/shared/themes/fonts/heading_3_fonts_theme.dart';
+import 'package:oohferta/src/shared/themes/fonts/heading_4_fonts_theme.dart';
+import 'package:oohferta/src/shared/themes/fonts/heading_5_fonts_theme.dart';
 
 class Themes {
-  static ThemeData light() => ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Inter',
-        colorScheme: lightColors,
+  static get light => ThemeData(
+        fontFamily: 'Poppins',
         brightness: Brightness.light,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        textTheme: const TextTheme(
-          bodySmall: TextStyle(
-            fontSize: 12,
-          ),
-          bodyMedium: TextStyle(
-            fontSize: 16,
-          ),
-          bodyLarge: TextStyle(
-            fontSize: 20,
-          ),
-        ),
-        appBarTheme: AppBarTheme(
-          titleTextStyle: const TextStyle(
-            fontSize: 18,
-            color: Colors.black,
-          ),
-          systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarBrightness: Brightness.light,
-            statusBarIconBrightness: Brightness.dark,
-            systemNavigationBarIconBrightness: Brightness.dark,
-            statusBarColor: Colors.transparent,
-            systemNavigationBarColor: lightColors.background,
-          ),
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
-        ),
-      );
+        extensions: <ThemeExtension<dynamic>>[
+          // Colors
+          GreyColorsTheme.build(),
+          InfoColorsTheme.build(),
+          DangerColorsTheme.build(),
+          PrimaryColorsTheme.build(),
+          SuccessColorsTheme.build(),
+          WarningColorsTheme.build(),
 
-  static ThemeData dark() => ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Inter',
-        colorScheme: darkColors,
-        brightness: Brightness.dark,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        appBarTheme: AppBarTheme(
-          titleTextStyle: const TextStyle(
-            fontSize: 18,
-            color: Colors.white,
-          ),
-          systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarBrightness: Brightness.dark,
-            statusBarIconBrightness: Brightness.light,
-            systemNavigationBarIconBrightness: Brightness.light,
-            statusBarColor: Colors.transparent,
-            systemNavigationBarColor: darkColors.background,
-          ),
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
-        ),
+          // Fonts
+          Body1FontsTheme.build(),
+          Body2FontsTheme.build(),
+          Body3FontsTheme.build(),
+          Heading1FontsTheme.build(),
+          Heading2FontsTheme.build(),
+          Heading3FontsTheme.build(),
+          Heading4FontsTheme.build(),
+          Heading5FontsTheme.build(),
+        ],
       );
 }
