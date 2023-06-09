@@ -1,6 +1,6 @@
-# oohferta
+# Oohferta
 
-A new Flutter project.
+A new App project.
 
 ## Getting Started
 
