@@ -1,52 +1,52 @@
 import 'package:flutter/material.dart';
 
 class WarningColorsTheme extends ThemeExtension<WarningColorsTheme> {
-  final Color? warning;
-  final Color? warning100;
-  final Color? warning200;
-  final Color? warning300;
-  final Color? warning400;
-  final Color? warning500;
-  final Color? warning600;
+  final Color? w100;
+  final Color? w200;
+  final Color? w300;
+  final Color? w400;
+  final Color? w500;
+  final Color? w600;
+  final Color? w700;
 
   WarningColorsTheme({
-    required this.warning,
-    required this.warning100,
-    required this.warning200,
-    required this.warning300,
-    required this.warning400,
-    required this.warning500,
-    required this.warning600,
+    required this.w100,
+    required this.w200,
+    required this.w300,
+    required this.w400,
+    required this.w500,
+    required this.w600,
+    required this.w700,
   });
 
   factory WarningColorsTheme.build() => WarningColorsTheme(
-        warning: const Color(0xFFF7DE00),
-        warning100: const Color(0xFFFEFBCB),
-        warning200: const Color(0xFFFEF798),
-        warning300: const Color(0xFFFCF065),
-        warning400: const Color(0xFFFAE93E),
-        warning500: const Color(0xFFD4BC00),
-        warning600: const Color(0xFFB19C00),
+        w100: const Color(0xFFFEFBCB),
+        w200: const Color(0xFFFEF798),
+        w300: const Color(0xFFFCF065),
+        w400: const Color(0xFFFAE93E),
+        w500: const Color(0xFFD4BC00),
+        w600: const Color(0xFFB19C00),
+        w700: const Color(0xFFF7DE00),
       );
 
   @override
   ThemeExtension<WarningColorsTheme> copyWith({
-    Color? warning,
-    Color? warning100,
-    Color? warning200,
-    Color? warning300,
-    Color? warning400,
-    Color? warning500,
-    Color? warning600,
+    Color? w100,
+    Color? w200,
+    Color? w300,
+    Color? w400,
+    Color? w500,
+    Color? w600,
+    Color? w700,
   }) =>
       WarningColorsTheme(
-        warning: warning ?? this.warning,
-        warning100: warning100 ?? this.warning100,
-        warning200: warning200 ?? this.warning200,
-        warning300: warning300 ?? this.warning300,
-        warning400: warning400 ?? this.warning400,
-        warning500: warning500 ?? this.warning500,
-        warning600: warning600 ?? this.warning600,
+        w100: w100 ?? this.w100,
+        w200: w200 ?? this.w200,
+        w300: w300 ?? this.w300,
+        w400: w400 ?? this.w400,
+        w500: w500 ?? this.w500,
+        w600: w600 ?? this.w600,
+        w700: w700 ?? this.w700,
       );
 
   @override
@@ -57,12 +57,12 @@ class WarningColorsTheme extends ThemeExtension<WarningColorsTheme> {
       other is! WarningColorsTheme
           ? this
           : WarningColorsTheme(
-              warning: Color.lerp(warning, other.warning, t),
-              warning100: Color.lerp(warning100, other.warning100, t),
-              warning200: Color.lerp(warning200, other.warning200, t),
-              warning300: Color.lerp(warning300, other.warning300, t),
-              warning400: Color.lerp(warning400, other.warning400, t),
-              warning500: Color.lerp(warning500, other.warning500, t),
-              warning600: Color.lerp(warning600, other.warning600, t),
+              w100: Color.lerp(w100, other.w100, t),
+              w200: Color.lerp(w200, other.w200, t),
+              w300: Color.lerp(w300, other.w300, t),
+              w400: Color.lerp(w400, other.w400, t),
+              w500: Color.lerp(w500, other.w500, t),
+              w600: Color.lerp(w600, other.w600, t),
+              w700: Color.lerp(w700, other.w700, t),
             );
 }

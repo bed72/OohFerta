@@ -1,40 +1,39 @@
 import 'package:flutter/material.dart';
 
 class Heading3FontsTheme extends ThemeExtension<Heading3FontsTheme> {
-  final TextStyle? headingRegular3;
-  final TextStyle? headingMedium3;
-  final TextStyle? headingSemiBold3;
-  final TextStyle? headingBold3;
+  final TextStyle? regular;
+  final TextStyle? medium;
+  final TextStyle? semiBold;
+  final TextStyle? bold;
 
   Heading3FontsTheme({
-    required this.headingRegular3,
-    required this.headingMedium3,
-    required this.headingSemiBold3,
-    required this.headingBold3,
+    required this.regular,
+    required this.medium,
+    required this.semiBold,
+    required this.bold,
   });
 
   factory Heading3FontsTheme.build() => Heading3FontsTheme(
-        headingRegular3: _style(height: 4.2, fontSize: 28.0),
-        headingMedium3:
-            _style(height: 4.2, fontSize: 28.0, fontWeight: FontWeight.w500),
-        headingSemiBold3:
-            _style(height: 4.2, fontSize: 28.0, fontWeight: FontWeight.w500),
-        headingBold3:
-            _style(height: 4.2, fontSize: 28.0, fontWeight: FontWeight.w600),
+        regular: _style(height: 1.42, fontSize: 28.0),
+        medium:
+            _style(height: 1.42, fontSize: 28.0, fontWeight: FontWeight.w500),
+        semiBold:
+            _style(height: 1.42, fontSize: 28.0, fontWeight: FontWeight.w600),
+        bold: _style(height: 1.42, fontSize: 28.0, fontWeight: FontWeight.w700),
       );
 
   @override
   ThemeExtension<Heading3FontsTheme> copyWith({
-    TextStyle? headingRegular3,
-    TextStyle? headingMedium3,
-    TextStyle? headingSemiBold3,
-    TextStyle? headingBold3,
+    TextStyle? regular,
+    TextStyle? medium,
+    TextStyle? semiBold,
+    TextStyle? bold,
   }) =>
       Heading3FontsTheme(
-        headingRegular3: headingRegular3 ?? this.headingRegular3,
-        headingMedium3: headingMedium3 ?? this.headingMedium3,
-        headingSemiBold3: headingSemiBold3 ?? this.headingSemiBold3,
-        headingBold3: headingBold3 ?? this.headingBold3,
+        regular: regular ?? this.regular,
+        medium: medium ?? this.medium,
+        semiBold: semiBold ?? this.semiBold,
+        bold: bold ?? this.bold,
       );
 
   @override
@@ -45,13 +44,10 @@ class Heading3FontsTheme extends ThemeExtension<Heading3FontsTheme> {
       other is! Heading3FontsTheme
           ? this
           : Heading3FontsTheme(
-              headingRegular3:
-                  TextStyle.lerp(headingRegular3, other.headingRegular3, t),
-              headingMedium3:
-                  TextStyle.lerp(headingMedium3, other.headingMedium3, t),
-              headingSemiBold3:
-                  TextStyle.lerp(headingSemiBold3, other.headingSemiBold3, t),
-              headingBold3: TextStyle.lerp(headingBold3, other.headingBold3, t),
+              regular: TextStyle.lerp(regular, other.regular, t),
+              medium: TextStyle.lerp(medium, other.medium, t),
+              semiBold: TextStyle.lerp(semiBold, other.semiBold, t),
+              bold: TextStyle.lerp(bold, other.bold, t),
             );
 
   static TextStyle _style({

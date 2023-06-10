@@ -10,6 +10,8 @@ import 'package:oohferta/src/app_widget.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  Modular.setInitialRoute('/authentication/');
+
   runApp(
     ModularApp(
       debugMode: true,

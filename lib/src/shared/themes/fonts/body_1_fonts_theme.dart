@@ -1,40 +1,39 @@
 import 'package:flutter/material.dart';
 
 class Body1FontsTheme extends ThemeExtension<Body1FontsTheme> {
-  final TextStyle? bodyRegular1;
-  final TextStyle? bodyMedium1;
-  final TextStyle? bodySemiBold1;
-  final TextStyle? bodyBold1;
+  final TextStyle? regular;
+  final TextStyle? medium;
+  final TextStyle? semiBold;
+  final TextStyle? bold;
 
   Body1FontsTheme({
-    required this.bodyRegular1,
-    required this.bodyMedium1,
-    required this.bodySemiBold1,
-    required this.bodyBold1,
+    required this.regular,
+    required this.medium,
+    required this.semiBold,
+    required this.bold,
   });
 
   factory Body1FontsTheme.build() => Body1FontsTheme(
-        bodyRegular1: _style(height: 2.4, fontSize: 16.0),
-        bodyMedium1:
-            _style(height: 2.4, fontSize: 16.0, fontWeight: FontWeight.w500),
-        bodySemiBold1:
-            _style(height: 2.4, fontSize: 16.0, fontWeight: FontWeight.w500),
-        bodyBold1:
-            _style(height: 2.4, fontSize: 16.0, fontWeight: FontWeight.w600),
+        regular: _style(height: 1.24, fontSize: 16.0),
+        medium:
+            _style(height: 1.24, fontSize: 16.0, fontWeight: FontWeight.w500),
+        semiBold:
+            _style(height: 1.24, fontSize: 16.0, fontWeight: FontWeight.w600),
+        bold: _style(height: 1.24, fontSize: 16.0, fontWeight: FontWeight.w700),
       );
 
   @override
   ThemeExtension<Body1FontsTheme> copyWith({
-    TextStyle? bodyRegular1,
-    TextStyle? bodyMedium1,
-    TextStyle? bodySemiBold1,
-    TextStyle? bodyBold1,
+    TextStyle? regular,
+    TextStyle? medium,
+    TextStyle? semiBold,
+    TextStyle? bold,
   }) =>
       Body1FontsTheme(
-        bodyRegular1: bodyRegular1 ?? this.bodyRegular1,
-        bodyMedium1: bodyMedium1 ?? this.bodyMedium1,
-        bodySemiBold1: bodySemiBold1 ?? this.bodySemiBold1,
-        bodyBold1: bodyBold1 ?? this.bodyBold1,
+        regular: regular ?? this.regular,
+        medium: medium ?? this.medium,
+        semiBold: semiBold ?? this.semiBold,
+        bold: bold ?? this.bold,
       );
 
   @override
@@ -45,11 +44,10 @@ class Body1FontsTheme extends ThemeExtension<Body1FontsTheme> {
       other is! Body1FontsTheme
           ? this
           : Body1FontsTheme(
-              bodyRegular1: TextStyle.lerp(bodyRegular1, other.bodyRegular1, t),
-              bodyMedium1: TextStyle.lerp(bodyMedium1, other.bodyMedium1, t),
-              bodySemiBold1:
-                  TextStyle.lerp(bodySemiBold1, other.bodySemiBold1, t),
-              bodyBold1: TextStyle.lerp(bodyBold1, other.bodyBold1, t),
+              regular: TextStyle.lerp(regular, other.regular, t),
+              medium: TextStyle.lerp(medium, other.medium, t),
+              semiBold: TextStyle.lerp(semiBold, other.semiBold, t),
+              bold: TextStyle.lerp(bold, other.bold, t),
             );
 
   static TextStyle _style({

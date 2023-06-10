@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_modular/flutter_modular.dart';
 
+import 'package:oohferta/src/shared/themes/themes.dart';
 import 'package:oohferta/src/shared/localization/localization.dart';
 import 'package:oohferta/src/shared/extensions/context_extension.dart';
 
@@ -11,6 +12,7 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      theme: Themes.light,
       restorationScopeId: 'app',
       debugShowCheckedModeBanner: false,
       supportedLocales: supportedLocales,
