@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:oohferta/src/shared/themes/fonts/style_fonts_theme.dart';
+
 class Body2FontsTheme extends ThemeExtension<Body2FontsTheme> {
   final TextStyle? regular;
   final TextStyle? medium;
@@ -14,12 +16,13 @@ class Body2FontsTheme extends ThemeExtension<Body2FontsTheme> {
   });
 
   factory Body2FontsTheme.build() => Body2FontsTheme(
-        regular: _style(height: 1.21, fontSize: 14.0),
-        medium:
-            _style(height: 1.21, fontSize: 14.0, fontWeight: FontWeight.w500),
-        semiBold:
-            _style(height: 1.21, fontSize: 14.0, fontWeight: FontWeight.w600),
-        bold: _style(height: 1.21, fontSize: 14.0, fontWeight: FontWeight.w700),
+        regular: fontStyle(height: 1.21, fontSize: 14.0),
+        medium: fontStyle(
+            height: 1.21, fontSize: 14.0, fontWeight: FontWeight.w500),
+        semiBold: fontStyle(
+            height: 1.21, fontSize: 14.0, fontWeight: FontWeight.w600),
+        bold: fontStyle(
+            height: 1.21, fontSize: 14.0, fontWeight: FontWeight.w700),
       );
 
   @override
@@ -49,19 +52,4 @@ class Body2FontsTheme extends ThemeExtension<Body2FontsTheme> {
               semiBold: TextStyle.lerp(semiBold, other.semiBold, t),
               bold: TextStyle.lerp(bold, other.bold, t),
             );
-
-  static TextStyle _style({
-    double height = 1.8,
-    double fontSize = 12.0,
-    double letterSpacing = 0.22,
-    Color color = const Color(0XFF010F07),
-    FontWeight fontWeight = FontWeight.w400,
-  }) =>
-      TextStyle(
-        color: color,
-        height: height,
-        fontSize: fontSize,
-        fontWeight: fontWeight,
-        letterSpacing: letterSpacing,
-      );
 }

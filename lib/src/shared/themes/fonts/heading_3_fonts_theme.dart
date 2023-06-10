@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:oohferta/src/shared/themes/fonts/style_fonts_theme.dart';
+
 class Heading3FontsTheme extends ThemeExtension<Heading3FontsTheme> {
   final TextStyle? regular;
   final TextStyle? medium;
@@ -14,12 +16,13 @@ class Heading3FontsTheme extends ThemeExtension<Heading3FontsTheme> {
   });
 
   factory Heading3FontsTheme.build() => Heading3FontsTheme(
-        regular: _style(height: 1.42, fontSize: 28.0),
-        medium:
-            _style(height: 1.42, fontSize: 28.0, fontWeight: FontWeight.w500),
-        semiBold:
-            _style(height: 1.42, fontSize: 28.0, fontWeight: FontWeight.w600),
-        bold: _style(height: 1.42, fontSize: 28.0, fontWeight: FontWeight.w700),
+        regular: fontStyle(height: 1.42, fontSize: 28.0),
+        medium: fontStyle(
+            height: 1.42, fontSize: 28.0, fontWeight: FontWeight.w500),
+        semiBold: fontStyle(
+            height: 1.42, fontSize: 28.0, fontWeight: FontWeight.w600),
+        bold: fontStyle(
+            height: 1.42, fontSize: 28.0, fontWeight: FontWeight.w700),
       );
 
   @override

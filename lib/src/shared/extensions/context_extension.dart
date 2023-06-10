@@ -36,6 +36,7 @@ extension LocalizedBuildContext on BuildContext {
       Theme.of(this).extension<Heading5FontsTheme>()!;
 
   // Colors
+  ColorScheme get colors => Theme.of(this).colorScheme;
   GreyColorsTheme get colorGrey => Theme.of(this).extension<GreyColorsTheme>()!;
   InfoColorsTheme get colorInfo => Theme.of(this).extension<InfoColorsTheme>()!;
   DangerColorsTheme get colorDanger =>
