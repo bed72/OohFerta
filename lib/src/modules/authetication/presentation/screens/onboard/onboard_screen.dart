@@ -45,7 +45,7 @@ class OnboardScreen extends StatelessWidget {
                 title: 'Sign in',
                 onPressed: () => {},
                 backgroundColor: context.colorGrey.g200,
-                foregroundColor: context.colorPrimary.p400,
+                foregroundColor: context.colorGrey.g300,
                 titleStyle: context.fontBody1.semiBold!.copyWith(
                   color: context.colorGrey.g400,
                 ),
