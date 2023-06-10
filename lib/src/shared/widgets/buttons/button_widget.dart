@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:oohferta/src/shared/widgets/buttons/load_widget.dart';
+import 'package:oohferta/src/shared/widgets/loads/load_widget.dart';
 
 class ButtonWidget extends StatelessWidget {
   final String title;
@@ -24,9 +24,15 @@ class ButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 52,
       width: double.infinity,
+      constraints: const BoxConstraints(
+        minHeight: 52,
+        maxHeight: 52,
+        minWidth: double.infinity,
+        maxWidth: double.infinity,
+      ),
       child: ElevatedButton(
         onPressed: isDisabled ? null : onPressed,
         style: ElevatedButton.styleFrom(

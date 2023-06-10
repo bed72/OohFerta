@@ -30,7 +30,7 @@ flutter:
   generate: true
 
   assets:
-    - assets/images/
+    - lib/src/shared/assets/images/
 
   fonts:
     - family: Poppins
