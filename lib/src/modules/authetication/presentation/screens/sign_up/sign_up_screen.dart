@@ -10,10 +10,16 @@ import 'package:oohferta/src/shared/widgets/scaffolds/scaffold_widget.dart';
 import 'package:oohferta/src/shared/widgets/buttons/icon_button_widget.dart';
 import 'package:oohferta/src/shared/widgets/fields/text_form_field_widget.dart';
 
-class SignUpScreen extends StatelessWidget {
-  final _formKey = GlobalKey<FormState>();
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
-  SignUpScreen({super.key});
+  @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
+  bool _isObscureText = false;
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -56,34 +62,38 @@ class SignUpScreen extends StatelessWidget {
               const SizedBox(height: 32),
               TextFormFieldWidget(
                 label: 'Nome',
+                onChanged: (value) => {},
+                suffixIcon: _suffixIcon(),
                 hintText: 'Entre com seu nome',
                 keyboardType: TextInputType.name,
                 textInputAction: TextInputAction.next,
-                onChanged: (p0) => {},
               ),
               const SizedBox(height: 16),
               TextFormFieldWidget(
                 label: 'E-mail',
+                onChanged: (value) => {},
+                suffixIcon: _suffixIcon(),
                 errorText: 'E-mail inválido.',
                 hintText: 'Entre com seu e-mail',
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.emailAddress,
-                onChanged: (p0) => {},
               ),
               const SizedBox(height: 16),
               TextFormFieldWidget(
                 label: 'Senha',
                 isEnabled: true,
-                isObscureText: true,
+                isObscureText: !_isObscureText,
                 hintText: 'Entre com sua senha',
                 textInputAction: TextInputAction.done,
                 keyboardType: TextInputType.visiblePassword,
-                onFieldSubmitted: (p0) => log('Submitted $p0'),
-                onChanged: (p0) => log('Changed $p0'),
+                onChanged: (value) => log('Changed $value'),
+                onFieldSubmitted: (value) => log('Submitted $value'),
                 suffixIcon: IconButtonWidget(
-                  onPressed: () {},
+                  onPressed: () => setState(
+                    () => _isObscureText = !_isObscureText,
+                  ),
                   icon: Icon(
-                    Icons.visibility,
+                    !_isObscureText ? Icons.visibility : Icons.visibility_off,
                     color: context.colorGrey.g400,
                   ),
                 ),
@@ -105,4 +115,9 @@ class SignUpScreen extends StatelessWidget {
       ),
     );
   }
+
+  Widget _suffixIcon() => IconButtonWidget(
+        onPressed: () {},
+        icon: const Icon(Icons.close_rounded),
+      );
 }
