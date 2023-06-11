@@ -26,7 +26,7 @@ class ScaffoldWidget extends StatelessWidget {
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
       child: Scaffold(
-        backgroundColor: backgroundColor ?? context.colorGrey.g200,
+        backgroundColor: backgroundColor ?? context.colorGrey.g100,
         appBar: appBar,
         body: SafeArea(child: child),
       ),

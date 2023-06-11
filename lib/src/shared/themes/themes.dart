@@ -20,6 +20,10 @@ class Themes {
   static get light => ThemeData(
         fontFamily: 'Poppins',
         brightness: Brightness.light,
+        splashColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        splashFactory: NoSplash.splashFactory,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         extensions: <ThemeExtension<dynamic>>[
           // Colors

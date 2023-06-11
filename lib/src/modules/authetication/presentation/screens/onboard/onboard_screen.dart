@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import 'package:oohferta/src/shared/widgets/images/image_widget.dart';
 import 'package:oohferta/src/shared/extensions/context_extension.dart';
 import 'package:oohferta/src/shared/widgets/buttons/button_widget.dart';
-import 'package:oohferta/src/shared/widgets/images/image_widget.dart';
 import 'package:oohferta/src/shared/widgets/scaffolds/scaffold_widget.dart';
 
 class OnboardScreen extends StatelessWidget {

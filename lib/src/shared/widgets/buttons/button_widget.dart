@@ -40,8 +40,6 @@ class ButtonWidget extends StatelessWidget {
           enableFeedback: true,
           foregroundColor: foregroundColor,
           backgroundColor: backgroundColor,
-          shadowColor: Colors.transparent,
-          splashFactory: NoSplash.splashFactory,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.0),
           ),

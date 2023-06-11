@@ -12,7 +12,7 @@ class SignInScreen extends StatelessWidget {
     return ScaffoldWidget(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: context.colorGrey.g200,
+        backgroundColor: context.colorGrey.g100,
         foregroundColor: context.colorGrey.g600,
       ),
       child: const Center(
