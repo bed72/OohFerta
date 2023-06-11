@@ -61,7 +61,7 @@ class OnboardScreen extends StatelessWidget {
               Expanded(
                 child: ButtonWidget(
                   title: 'Já possuí uma conta?',
-                  backgroundColor: context.colorGrey.g200,
+                  backgroundColor: context.colorGrey.g100,
                   foregroundColor: context.colorGrey.g300,
                   onPressed: () => Modular.to.pushNamed('sign_in'),
                   titleStyle: context.fontBody1.semiBold!.copyWith(
