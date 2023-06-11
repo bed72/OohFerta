@@ -10,7 +10,7 @@ class AuthenticationModule extends Module {
         ChildRoute('/', child: (context, args) => const OnboardScreen()),
         ChildRoute(
           '/sign_up',
-          child: (context, args) => SignUpScreen(),
+          child: (context, args) => const SignUpScreen(),
           transition: TransitionType.rightToLeft,
         ),
         ChildRoute(

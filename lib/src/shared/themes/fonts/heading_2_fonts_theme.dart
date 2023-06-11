@@ -52,19 +52,4 @@ class Heading2FontsTheme extends ThemeExtension<Heading2FontsTheme> {
               semiBold: TextStyle.lerp(semiBold, other.semiBold, t),
               bold: TextStyle.lerp(bold, other.bold, t),
             );
-
-  static TextStyle _style({
-    double height = 1.8,
-    double fontSize = 12.0,
-    double letterSpacing = 0.22,
-    Color color = const Color(0XFF010F07),
-    FontWeight fontWeight = FontWeight.w400,
-  }) =>
-      TextStyle(
-        color: color,
-        height: height,
-        fontSize: fontSize,
-        fontWeight: fontWeight,
-        letterSpacing: letterSpacing,
-      );
 }
