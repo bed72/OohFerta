@@ -1,5 +1,3 @@
-import 'package:either_dart/either.dart';
-
 import 'package:oohferta/src/modules/core/data/value_objects/value_object.dart';
 
 class NameVO extends ValueObject<String> {
@@ -10,7 +8,9 @@ class NameVO extends ValueObject<String> {
   }
 
   @override
-  Either<String, NameVO> validate() => _regex.hasMatch(value)
-      ? Right(this)
-      : const Left('Este nome não é válido.');
+  String? validator([String? data]) {
+    if (data == null) return 'Preencha um nome válido.';
+
+    return _regex.hasMatch(data) ? null : 'Este nome não é válido.';
+  }
 }

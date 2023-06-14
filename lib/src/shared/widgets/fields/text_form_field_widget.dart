@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:oohferta/src/modules/core/data/value_objects/value_object.dart';
 
 import 'package:oohferta/src/shared/extensions/context_extension.dart';
 
@@ -10,6 +11,7 @@ class TextFormFieldWidget extends StatelessWidget {
   final String? errorText;
   final bool isObscureText;
   final Widget? suffixIcon;
+  final ValueObject valueObject;
   final TextInputType keyboardType;
   final TextInputAction textInputAction;
   final void Function(String)? onChanged;
@@ -21,6 +23,7 @@ class TextFormFieldWidget extends StatelessWidget {
     required this.label,
     required this.hintText,
     required this.onChanged,
+    required this.valueObject,
     required this.keyboardType,
     required this.textInputAction,
     this.errorText,
@@ -48,9 +51,11 @@ class TextFormFieldWidget extends StatelessWidget {
           onChanged: onChanged,
           obscureText: isObscureText,
           keyboardType: keyboardType,
+          initialValue: valueObject.value,
           textInputAction: textInputAction,
           inputFormatters: inputFormatters,
           onFieldSubmitted: onFieldSubmitted,
+          validator: (value) => valueObject.validator(value),
           cursorColor: context.colorGrey.g400,
           decoration: InputDecoration(
             filled: true,

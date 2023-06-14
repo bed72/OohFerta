@@ -1,5 +1,4 @@
 import 'package:either_dart/either.dart';
-import 'package:equatable/equatable.dart';
 
 import 'package:oohferta/src/modules/core/data/value_objects/name_vo.dart';
 import 'package:oohferta/src/modules/core/data/value_objects/email_vo.dart';
@@ -7,7 +6,7 @@ import 'package:oohferta/src/modules/core/data/value_objects/password_vo.dart';
 
 import 'package:oohferta/src/modules/core/data/models/request/resquest_model.dart';
 
-final class SignUpRequestModel extends Equatable implements RequestModel {
+final class SignUpRequestModel implements RequestModel {
   final NameVO name;
   final EmailVO email;
   final PasswordVO password;
@@ -18,8 +17,22 @@ final class SignUpRequestModel extends Equatable implements RequestModel {
     required this.password,
   });
 
-  @override
-  List<Object?> get props => [name, email, password];
+  factory SignUpRequestModel.empty() => SignUpRequestModel(
+        name: NameVO(''),
+        email: EmailVO(''),
+        password: PasswordVO(''),
+      );
+
+  SignUpRequestModel copyWith({
+    String? name,
+    String? email,
+    String? password,
+  }) =>
+      SignUpRequestModel(
+        name: NameVO(name ?? this.name.value),
+        email: EmailVO(email ?? this.email.value),
+        password: PasswordVO(password ?? this.password.value),
+      );
 
   @override
   Either<String, SignUpRequestModel> validate() =>
@@ -27,7 +40,7 @@ final class SignUpRequestModel extends Equatable implements RequestModel {
 
   @override
   bool fieldsAreValid() =>
-      name.validate().isRight &&
-      email.validate().isRight &&
-      password.validate().isRight;
+      name.value.isNotEmpty &&
+      email.value.isNotEmpty &&
+      password.value.isNotEmpty;
 }

@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:oohferta/src/modules/authetication/data/models/request/sign_up_resquest_model.dart';
+import 'package:oohferta/src/modules/core/data/value_objects/email_vo.dart';
 
 import 'package:oohferta/src/shared/extensions/context_extension.dart';
 import 'package:oohferta/src/shared/widgets/buttons/button_widget.dart';
@@ -20,6 +22,8 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   bool _isObscureText = false;
   final _formKey = GlobalKey<FormState>();
+
+  SignUpRequestModel _vo = SignUpRequestModel.empty();
 
   @override
   Widget build(BuildContext context) {
@@ -62,36 +66,37 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(height: 32),
               TextFormFieldWidget(
                 label: 'Nome',
-                onChanged: (value) => {},
+                valueObject: _vo.name,
                 suffixIcon: _suffixIcon(),
                 hintText: 'Entre com seu nome',
                 keyboardType: TextInputType.name,
                 textInputAction: TextInputAction.next,
+                onChanged: (value) => _vo = _vo.copyWith(name: value),
               ),
               const SizedBox(height: 16),
               TextFormFieldWidget(
                 label: 'E-mail',
-                onChanged: (value) => {},
+                valueObject: _vo.email,
                 suffixIcon: _suffixIcon(),
-                errorText: 'E-mail inválido.',
                 hintText: 'Entre com seu e-mail',
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.emailAddress,
+                onChanged: (value) => _vo = _vo.copyWith(email: value),
               ),
               const SizedBox(height: 16),
               TextFormFieldWidget(
                 label: 'Senha',
                 isEnabled: true,
+                valueObject: _vo.password,
                 isObscureText: !_isObscureText,
                 hintText: 'Entre com sua senha',
                 textInputAction: TextInputAction.done,
                 keyboardType: TextInputType.visiblePassword,
-                onChanged: (value) => log('Changed $value'),
+                onChanged: (value) => _vo = _vo.copyWith(password: value),
                 onFieldSubmitted: (value) => log('Submitted $value'),
                 suffixIcon: IconButtonWidget(
-                  onPressed: () => setState(
-                    () => _isObscureText = !_isObscureText,
-                  ),
+                  onPressed: () =>
+                      setState(() => _isObscureText = !_isObscureText),
                   icon: Icon(
                     !_isObscureText ? Icons.visibility : Icons.visibility_off,
                     color: context.colorGrey.g400,
@@ -100,13 +105,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               const SizedBox(height: 32),
               ButtonWidget(
-                onPressed: () => {},
                 title: 'Criar Conta',
+                isDisabled: _vo.validate().isLeft,
                 foregroundColor: context.colorGrey.g100,
                 backgroundColor: context.colorPrimary.p700,
                 titleStyle: context.fontBody1.semiBold!.copyWith(
                   color: context.colorGrey.g100,
                 ),
+                onPressed: () => {
+                  _vo.validate().fold(
+                        (failure) => log(failure),
+                        (success) => log(success.toString()),
+                      ),
+                },
               ),
               const SizedBox(height: 32),
             ],

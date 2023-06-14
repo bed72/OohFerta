@@ -1,5 +1,3 @@
-import 'package:either_dart/either.dart';
-
 import 'package:oohferta/src/modules/core/data/value_objects/value_object.dart';
 
 class PasswordVO extends ValueObject<String> {
@@ -10,7 +8,9 @@ class PasswordVO extends ValueObject<String> {
   }
 
   @override
-  Either<String, PasswordVO> validate() => _regex.hasMatch(value)
-      ? Right(this)
-      : const Left('Esta senha não é válida.');
+  String? validator([String? data]) {
+    if (data == null) return 'Preencha uma senha válida.';
+
+    return _regex.hasMatch(data) ? null : 'Esta senha não é válida.';
+  }
 }
